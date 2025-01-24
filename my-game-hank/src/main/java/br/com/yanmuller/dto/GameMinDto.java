@@ -1,6 +1,7 @@
 package br.com.yanmuller.dto;
 
 import br.com.yanmuller.entities.Game;
+import br.com.yanmuller.projections.GameMinProjection;
 
 public class GameMinDto {
     private Long id;
@@ -21,6 +22,14 @@ public class GameMinDto {
        year = entity.getYear();
        imgUrl = entity.getImgUrl();
        shortDescription = entity.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
